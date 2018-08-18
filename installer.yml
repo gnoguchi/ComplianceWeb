@@ -1,0 +1,6 @@
+- name: Instalando LAMP
+  hosts: prod
+  tasks:
+  - name: criando arquivo de teste
+    shell: yum install mysql-server && yum install httpd 
+

@@ -1,0 +1,19 @@
+- name: Configurando um script
+  hosts: prod
+  tasks:
+  - name: Verificando se o httpd esta instalado no CentOS
+    yum: name=httpd state=present
+    when: ansible_distribution == "CentOS" 
+
+  - name: Verificando se o httpd esta instalado no Fedora
+    dnf: name=httpd state=present
+    when: ansible_distribution == "Fedora"
+
+  - name: Verificando se o mysql esta instalado no CentOS
+    yum: name=mysql-server state=presente
+    when: ansible_distribution == "CentOS"
+
+  - name: Verificando se o mysql esta instalado no Fedora
+    dnf:  name=mysql-server state=presente
+    when: ansible_distribution == "Fedora"	
+    		
